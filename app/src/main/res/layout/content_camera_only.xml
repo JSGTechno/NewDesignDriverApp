@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:layout_marginTop="24dp"
+    app:cardCornerRadius="12dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+    tools:showIn="@layout/activity_second_image">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCameraInfo"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_alignParentEnd="true"
+            android:onClick="showImageInfo"
+            app:srcCompat="@drawable/fleetech_app_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtCamera"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_toStartOf="@id/imgCameraInfo"
+            android:text="Camera" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCamera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtCamera"
+            android:background="@color/greymoredark"
+            android:onClick="showImage"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_camera_photo"
+        style="@style/Widget.Design.FloatingActionButton"
+        android:onClick="pickCameraImage"
+        app:srcCompat="@drawable/capture_icon" />
+
+</androidx.cardview.widget.CardView>

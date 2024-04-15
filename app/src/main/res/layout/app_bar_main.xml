@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainView">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:theme="@style/Theme.Fleetech.NoActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:id="@+id/toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/nav_icon"
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableStart="@drawable/nav_icon"
+                    android:layout_gravity="start"
+                    android:textColor="@color/white" />
+
+
+
+                <TextView
+                    android:id="@+id/toolbar_save1"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_6sdp"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:text="pick a origin"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@+id/view1"
+                    android:layout_gravity="center"
+                    android:imeOptions="actionDone"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_weight="0.5"
+                    android:visibility="invisible"
+                    android:hint="Search"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:textColorHint="@color/darkGrey"
+                    android:background="@drawable/search_rounded"
+                    android:singleLine="true"
+                    android:textColor="@color/darkGrey"
+                    android:textCursorDrawable="@drawable/custom_color_cursor"
+                    android:textSize="10sp" />
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:gravity="end"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:orientation="horizontal">-->
+
+                <!--                    <TextView-->
+                <!--                        style="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:background="?attr/selectableItemBackground"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:id="@+id/toolbar_user"-->
+                <!--                        android:drawableEnd="@drawable/user"-->
+                <!--                        android:paddingEnd="@dimen/_2sdp"-->
+                <!--                        android:visibility="gone"-->
+                <!--                        android:textColor="@color/colorWhite"-->
+                <!--                        android:textAllCaps="true" />-->
+
+                <TextView
+                    android:id="@+id/user_name"
+                    style="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawablePadding="2dp"
+                    android:gravity="center"
+                    android:maxEms="9"
+                    android:padding="@dimen/_2sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+
+                <!--                </LinearLayout>-->
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:layout_above="@+id/BottomNavigation">
+       <!-- layout="@layout/app_bar_main"-->
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/BottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:itemIconSize="@dimen/_20sdp"
+        app:itemIconTint="@drawable/bottom_navigation_colors"
+        app:itemTextColor="@drawable/bottom_navigation_colors"
+        app:labelVisibilityMode="selected"
+        app:menu="@menu/bottom_menu" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

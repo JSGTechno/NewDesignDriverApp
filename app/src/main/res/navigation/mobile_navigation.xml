@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_home"-->
+<!--        android:name="com.example.fleetech.activities.ui.home.HomeFragment"-->
+<!--        android:label="@string/menu_home"-->
+<!--        tools:layout="@layout/content_main_map_with_text" >-->
+
+<!--    <action-->
+<!--        android:id="@+id/action_from_fragmentA_to_AssignOrderListFragment"-->
+<!--        app:destination="@id/AssignOrderListFragment" />-->
+<!--    <fragment/>-->
+
+    <fragment
+        android:id="@+id/TCIncidentsFragment"
+        android:name="com.example.fleetech.activities.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/content_main_map_with_text" >
+        <action
+            android:id="@+id/action_from_fragmentA_to_AssignOrderListFragment"
+            app:destination="@id/AssignOrderListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.fleetech.activities.ui.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_docs"
+        android:name="com.example.fleetech.activities.ui.DocumentFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_document" />
+    <fragment
+        android:id="@+id/nav_trips"
+        android:name="com.example.fleetech.activities.ui.MyTripFragment"
+        android:label="@string/menu_trips"
+        tools:layout="@layout/fragment_my_trip" />
+    <fragment
+        android:id="@+id/nav_payments"
+        android:name="com.example.fleetech.activities.ui.PaymentFragment"
+        android:label="@string/menu_payments"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/nav_incentive"
+        android:name="com.example.fleetech.activities.ui.IncentiveFragment"
+        android:label="@string/menu_incentive"
+        tools:layout="@layout/fragment_incentive" />
+
+    <fragment
+        android:id="@+id/AssignOrderListFragment"
+        android:name="com.example.fleetech.activities.ui.home.AssignOrderListFragment"
+        android:label="Assign"
+        tools:layout="@layout/assign_order_list" />
+
+</navigation>

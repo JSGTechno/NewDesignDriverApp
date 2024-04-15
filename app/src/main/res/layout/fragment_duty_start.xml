@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.ui.DutyStartFragment">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_height="@dimen/_40sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:src="@drawable/back_arrow_red"/>
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Duty"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black_transparent"
+            />
+
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_height="35dp"
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <RelativeLayout
+            android:id="@+id/PaymentRl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="@dimen/_10sdp"
+            android:padding="@dimen/_2sdp"
+            android:background="@drawable/background_white1_cornor_round"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/lastcheckinLocationll">
+
+
+            <TextView
+                android:id="@+id/walletTv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="₹ "
+                android:layout_gravity="end|center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_12sdp"
+                android:paddingStart="@dimen/_35sdp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/wallet"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wallet Balance"
+                android:layout_gravity="center"
+                android:layout_below="@+id/walletTv"
+                android:textColor="@color/black_transparent"
+                android:textStyle="normal"
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_11sdp"
+                android:gravity="center"
+                />
+
+
+            <!--  <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="New Delhi"
+                  android:layout_gravity="end|center"
+                  android:background="@drawable/background_white1_cornor_round"
+                  android:textColor="@color/black_transparent"
+                  android:padding="@dimen/_2sdp"
+                  android:textSize="@dimen/_12sdp"
+                  android:layout_marginStart="@dimen/_5sdp"
+                  android:layout_marginEnd="@dimen/_5sdp"
+                  android:gravity="center"
+                  android:layout_weight="1"
+                  android:textAllCaps="false"
+                  />-->
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/lock"/>
+        <RelativeLayout
+            android:id="@+id/fastTagRl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="@dimen/_10sdp"
+            android:padding="@dimen/_2sdp"
+            android:background="@drawable/background_white1_cornor_round"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/lastcheckinLocationll">
+
+
+            <TextView
+                android:id="@+id/fastTagTv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="₹ "
+                android:layout_gravity="end|center"
+                android:textColor="@color/login_red"
+                android:textStyle="bold"
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_12sdp"
+                android:paddingStart="@dimen/_35sdp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/toll"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FastTag Balance"
+                android:layout_gravity="center"
+                android:layout_below="@+id/fastTagTv"
+                android:textColor="@color/black_transparent"
+                android:textStyle="normal"
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_11sdp"
+                android:gravity="center"
+                />
+
+
+            <!--  <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="New Delhi"
+                  android:layout_gravity="end|center"
+                  android:background="@drawable/background_white1_cornor_round"
+                  android:textColor="@color/black_transparent"
+                  android:padding="@dimen/_2sdp"
+                  android:textSize="@dimen/_12sdp"
+                  android:layout_marginStart="@dimen/_5sdp"
+                  android:layout_marginEnd="@dimen/_5sdp"
+                  android:gravity="center"
+                  android:layout_weight="1"
+                  android:textAllCaps="false"
+                  />-->
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:layout_below="@+id/dutyStartTv">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:src="@drawable/green_circle_clock"/>
+
+        <LinearLayout
+            android:id="@+id/lytimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:layout_gravity="end|center"
+            android:textColor="@color/white"
+            android:padding="@dimen/_5sdp"
+            android:textStyle="bold"
+            android:textSize="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_1sdp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/timerMinutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:layout_gravity="end|center"
+                android:textColor="@color/white"
+                android:padding="@dimen/_5sdp"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_1sdp"
+                android:textAllCaps="false"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/timerSec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:layout_gravity="end|center"
+                android:textColor="@color/white"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textAllCaps="false"
+                />
+
+
+        </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/lytimer"
+                   >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HH"
+                        android:gravity="center_horizontal"
+                        android:textAllCaps="false"
+                         android:layout_marginEnd="@dimen/_8sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="MM"
+                        android:textAllCaps="false"
+                       android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="SS"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentBottom="true"
+                    >
+
+                    <TextView
+                        android:id="@+id/totalhourtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:gravity="center_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:text="Total Hrs."
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true">
+
+                    <TextView
+                        android:id="@+id/pendinghourtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00%"
+                        android:layout_gravity="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Pending Time %"
+                        android:visibility="visible"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/login_red"
+
+        android:orientation="horizontal"
+        android:layout_below="@+id/dutyStartTv">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTofrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Free"
+            android:layout_gravity="start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            />
+        <TextView
+            android:id="@+id/orderId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:layout_gravity="start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:orientation="horizontal">
+
+
+
+
+        <TextView
+            android:id="@+id/vehicleStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_gravity="end|center"
+            android:textColor="@color/white"
+            android:padding="@dimen/_4sdp"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            />
+        <ImageView
+            android:id="@+id/reportedFlag"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_5sdp"
+            android:visibility="gone"
+            android:src="@drawable/document_scan"/>
+
+
+            <ImageView
+                android:id="@+id/podUpload"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:padding="@dimen/_5sdp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:src="@drawable/ic_baseline_cloud_upload_24"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:elevation="@dimen/_13sdp"
+        android:background="@color/white"
+        android:layout_below="@+id/dutyStartTv">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pick Up Address"
+                android:layout_gravity="start"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/tvLoadingaddressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="start"
+                android:background="@drawable/background_white1_cornor_round"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_8sdp"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:padding="@dimen/_5sdp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected Date &amp; Time"
+                android:layout_gravity="center"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_12sdp"
+
+                android:textStyle="bold"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="25 jan 2024,5:30AM"
+                android:layout_gravity="center"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/map_loc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="2.5"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/map"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:elevation="@dimen/_13sdp"
+        android:background="@color/white"
+        android:layout_below="@+id/dutyStartTv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delivery Address"
+                android:layout_gravity="start"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/tvDeliveryaddressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="start"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_8sdp"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/background_white1_cornor_round"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="STATUS"
+                android:layout_gravity="center"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ON THE WAY"
+                android:layout_gravity="center"
+                android:textColor="@color/login_red"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                />
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/map_loc_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="2.5"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/map"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:elevation="@dimen/_13sdp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_below="@+id/dutyStartTv">
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/vehical"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/vehicleNoTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/vehicleCategoryTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                android:textAllCaps="false"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:elevation="@dimen/_13sdp"
+        android:background="@color/white"
+        android:layout_below="@+id/dutyStartTv">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_weight=".1"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_calendar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dispatch DateTime"
+                android:layout_gravity="start"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/dispatchDateTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="start"
+                android:background="@drawable/background_white1_cornor_round"
+                android:textColor="@color/login_red"
+                android:textSize="@dimen/_8sdp"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_weight=".1"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_calendar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:visibility="visible"
+            android:padding="@dimen/_5sdp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expected DateTime"
+                android:layout_gravity="center"
+                android:textColor="@color/black_transparent"
+                android:textSize="@dimen/_10sdp"
+
+                android:textStyle="bold"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/expectedarrivaldate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="center"
+                android:textColor="@color/login_red"
+                android:textSize="@dimen/_8sdp"
+                android:gravity="start"
+                android:textAllCaps="false"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/lastCheckLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/white"
+        android:elevation="@dimen/_13sdp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_below="@+id/dutyStartTv">
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/map_status"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Vehicle Location"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            />
+
+
+        <TextView
+            android:id="@+id/gpsLocationTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_gravity="end|center"
+            android:background="@drawable/background_white1_cornor_round"
+            android:textColor="@color/black_transparent"
+            android:padding="@dimen/_2sdp"
+            android:textSize="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            />
+
+
+
+    </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/progressBarpodstatus"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:visibility="visible" />
+
+</LinearLayout>
+
+
+
+
+</ScrollView>

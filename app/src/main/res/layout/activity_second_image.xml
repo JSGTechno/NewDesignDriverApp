@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:layout_marginTop="24dp"
+    app:cardCornerRadius="12dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+    tools:showIn="@layout/activity_second_image">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCameraInfo"
+            android:layout_alignParentEnd="true"
+            android:onClick="showImageInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/fleetech_app_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_toStartOf="@id/imgCameraInfo"
+            android:text="Camera" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCamera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtCamera"
+            android:background="@color/greymoredark"
+            android:onClick="showImage"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fab_add_camera_photo"
+        android:onClick="pickCameraImage"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_50sdp"
+        app:srcCompat="@drawable/capture_icon" />
+
+</androidx.cardview.widget.CardView>

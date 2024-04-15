@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:gravity="center"
+        android:background="@color/linear_bg"
+        android:layout_gravity="center">">
+
+    <TextView
+        android:id="@+id/sNoTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        android:text="S.No"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/grey"
+        />
+
+    <TextView
+        android:id="@+id/odidTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="OdID"
+        android:layout_weight="1"
+        android:textColor="@color/grey"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:id="@+id/PmtType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:gravity="center"
+        android:text="Pmt Type"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="10sp"/>
+
+
+    <TextView
+        android:id="@+id/Amount_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:textColor="@color/grey"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        />
+
+
+
+
+    <TextView
+        android:id="@+id/PmtDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="Pmt Date"
+        android:textColor="@color/grey"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:id="@+id/utr_no_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_selector"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="UTR No."
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/podSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_selector"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        />
+    </LinearLayout>
+</LinearLayout>

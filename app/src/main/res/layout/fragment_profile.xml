@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<!--        <variable-->
+<!--            name="clickHandler"-->
+<!--            type="com.pclhealth.app.activity.personalinfo.PersonalInfoActivity.ClickHandler" />-->
+
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.pclhealth.app.activity.personalinfo.PersonalInfoViewModel" />-->
+
+<!--        <variable-->
+<!--            name="getUpdateResponse"-->
+<!--            type="com.pclhealth.app.model.response.profileresponse.GetUpdateResponse" />-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:context=".activity.personalinfo.PersonalInfoActivity">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_142sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    app:cardElevation="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingRight="@dimen/_15sdp">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/profile_pic"
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_86sdp"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/default_user" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="bottom|right"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:src="@mipmap/icon_pencil" />
+
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    style="@style/TextViewRegularStyle"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/background_white1_cornor_round"
+                    android:text="Name - Amit Kumar"
+                    android:padding="@dimen/_8sdp"
+                    android:textAllCaps="true"
+                    android:id="@+id/driverName"
+                    android:textColor="@color/black"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey">
+
+                </View>
+
+                <TextView
+                    android:id="@+id/contact"
+                    style="@style/TextViewRegularStyle"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/background_white1_cornor_round"
+                    android:text="Mobile No - 6677778188"
+                    android:padding="@dimen/_8sdp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                   />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey">
+
+                </View>
+                <TextView
+                    android:id="@+id/dob"
+                    style="@style/TextViewRegularStyle"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/background_white1_cornor_round"
+                    android:text="DOB - 04/03/1992"
+                    android:padding="@dimen/_8sdp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                 />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey">
+
+                </View>
+                <TextView
+                    android:id="@+id/address"
+                    style="@style/TextViewRegularStyle"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/background_white1_cornor_round"
+                    android:text="Address - Gurgaon 122002"
+                    android:padding="@dimen/_8sdp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey">
+
+                </View>
+
+                <ProgressBar
+                    android:id="@+id/progressBar3"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

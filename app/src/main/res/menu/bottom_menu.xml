@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/home_selected"
+        android:title=""
+        app:showAsAction="never" />
+
+
+    <item
+        android:enabled="true"
+        android:id="@+id/menu_my_trips"
+        android:icon="@drawable/user_profile"
+        android:title=""
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/payment_menu"
+        android:enabled="true"
+        android:icon="@drawable/notification"
+        android:title=""
+        app:showAsAction="never" />
+
+    <item
+
+        android:id="@+id/doc_menu"
+        android:enabled="true"
+        android:icon="@drawable/logout"
+        android:title=""
+        app:showAsAction="never" />
+</menu>
