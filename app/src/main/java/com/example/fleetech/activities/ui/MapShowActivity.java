@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.fleetech.R;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -59,10 +60,10 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
         setContentView(R.layout.activity_map_show);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-      //  mapFragment.getMapAsync(this);
-        if (mapFragment != null) {
+        mapFragment.getMapAsync(this);
+      /*  if (mapFragment != null) {
             mapFragment.getMapAsync(this);
-        }
+        }*/
 
         Bundle bundle = getIntent().getExtras();
 
@@ -213,7 +214,11 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
         LatLng madrid = new LatLng(Dlat,Dlong);
         mMap.addMarker(new MarkerOptions().position(madrid).title("Destination"));
 
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(barcelona));
+        CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
 
+        // googleMap.moveCamera(center);
+        mMap.animateCamera(zoom);
 
         String sourceLat = String.valueOf(Slat);
         String sourceLong = String.valueOf(Slong);
@@ -239,11 +244,12 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
             @Override
             public void onMapLoaded() {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
+                clearAndRedrawMap();
             }
         });
         mMap.setOnCameraMoveStartedListener(reason -> {
             if (reason == GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE && !isZoomed) {
-                //clearAndRedrawMap();
+                clearAndRedrawMap();
             }
         });
 
@@ -302,7 +308,7 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
 
         //Draw the polyline
         if (path.size() > 0) {
-            PolylineOptions opts = new PolylineOptions().addAll(path).color(Color.GREEN).width(5);
+            PolylineOptions opts = new PolylineOptions().addAll(path).color(Color.BLUE).width(12);
             mMap.addPolyline(opts);
         }
 
@@ -314,10 +320,17 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     private void clearAndRedrawMap() {
-        mMap.clear();
+        LatLng sydney = new LatLng(Slat,Slong);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        CameraUpdate zoom=CameraUpdateFactory.zoomTo(10);
+
+        // googleMap.moveCamera(center);
+        mMap.animateCamera(zoom);
+
+       /* mMap.clear();
         LatLng sydney = new LatLng(Slat,Slong);
         mMap.addMarker(new MarkerOptions().position(sydney).title("INDIA"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
-        isZoomed = true;
+        isZoomed = true;*/
     }
 }

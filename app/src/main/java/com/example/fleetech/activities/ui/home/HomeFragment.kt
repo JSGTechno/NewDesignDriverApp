@@ -59,6 +59,7 @@ import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 import android.location.Address
+import com.nrv.fleetech.activities.ui.home.JoinCircleDialog
 
 
 class HomeFragment : Fragment(), OnMapReadyCallback, LocationListener,

@@ -1,38 +1,29 @@
-package com.example.fleetech.activities.ui.home
+package com.nrv.fleetech.activities.ui.home
 
 import android.content.Intent
-import android.graphics.*
-import android.net.Uri
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.Glide
 import com.example.fleetech.R
 import com.example.fleetech.activities.MainActivity
 import com.example.fleetech.retrofit.Apiuitils
 import com.example.fleetech.retrofit.RetrofitClient
-import com.example.fleetech.retrofit.model.LRModel
-import com.example.fleetech.retrofit.model.PODModel
 import com.example.fleetech.retrofit.response.PODResponse
-import com.example.fleetech.util.ErrorResponse
 import com.example.fleetech.util.Prefs
 import com.example.fleetech.util.Session
-import com.google.gson.Gson
+
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 import java.io.File
 
 
@@ -78,10 +69,10 @@ class MainPodDialog : DialogFragment() {
         val submit = view.findViewById<TextView>(R.id.nextPod)
         val back_pod = view.findViewById<TextView>(R.id.back_pod)
         progressBar_pod_image = view.findViewById<ProgressBar>(R.id.progressBar_pod_image)
-        /*if (sessionManager.keyPodtype.equals("LRTYPE")) { // yogesh comment
+        if (sessionManager.keyPodtype.equals("LRTYPE")) {
             txtFrontPod.setText("LR")
             txtBackPod.setText("Eway Bill")
-        }*/
+        }
         back_pod.setOnClickListener {
             dismiss()
         }
@@ -140,8 +131,8 @@ class MainPodDialog : DialogFragment() {
         call.enqueue(object : Callback<PODResponse> {
             override fun onResponse(
                 call: Call<PODResponse>,
-                response: Response<PODResponse>
-            ) {
+                response: Response<PODResponse>) {
+                Log.i("TAG","check_data" + response.body())
 
                 Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
                 println("Success111 ${response.body()!!.jDoc}")
@@ -194,8 +185,6 @@ class MainPodDialog : DialogFragment() {
                 call: Call<PODResponse>,
                 response: Response<PODResponse>
             ) {
-             ///   val gson = Gson()
-                Log.i("TAG","reponse_pod" + response.body() + ":" +  response.errorBody())
 
                 Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
                 dismiss()

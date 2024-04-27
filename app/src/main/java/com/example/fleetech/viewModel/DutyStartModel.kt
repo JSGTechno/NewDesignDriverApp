@@ -11,6 +11,7 @@ import com.example.fleetech.retrofit.model.LRModel
 import com.example.fleetech.retrofit.model.OTPModel
 import com.example.fleetech.retrofit.model.UPLOADPODMODEL
 import com.example.fleetech.retrofit.response.*
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -103,7 +104,10 @@ class DutyStartModel : ViewModel() {
                 call: Call<TripDetailResponse>,
                 response: Response<TripDetailResponse>
             ) {
+
+                Log.i("TAG","check_trip" + response.errorBody())
                 if (response.code() == 200) {
+                 //   Log.i("TAG","check_trip" + response.body())
                     tripList.postValue(response.body())
                     loading.value = false
                     println("data check otp ${tripList}" + response.body())

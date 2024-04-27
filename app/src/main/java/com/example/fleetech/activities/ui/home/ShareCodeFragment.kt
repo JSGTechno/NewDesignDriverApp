@@ -1,18 +1,11 @@
-package com.example.fleetech.activities.ui.home
+package com.nrv.fleetech.activities.ui.home
 
-import android.Manifest
 import android.app.Activity
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.*
-import android.graphics.drawable.ColorDrawable
-import android.media.ExifInterface
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
@@ -25,21 +18,14 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.fleetech.R
 import com.example.fleetech.util.Prefs
 import com.example.fleetech.util.Session
+
 import com.github.drjacky.imagepicker.ImagePicker
 import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.IOException
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -97,7 +83,7 @@ class ShareCodeFragment :  DialogFragment() {
         val mEditText = view.findViewById(R.id.capture_icon_back) as ImageView
         val txt_back_pod = view.findViewById(R.id.txt_back_pod) as TextView
         val txt_capture_backpod = view.findViewById(R.id.txt_capture_backpod) as TextView
-        if (session.keyPodtype.equals("LRTYPE")) { // yogesh comment
+        if (session.keyPodtype.equals("LRTYPE")) {
             txt_capture_backpod.setText("Capture EwayBill Image")
             txt_back_pod.setText("Take EwayBill Image")
         }
@@ -179,7 +165,7 @@ class ShareCodeFragment :  DialogFragment() {
 //                photoFile?.also {
 //                    photoURI = FileProvider.getUriForFile(
 //                        requireContext(),
-//                        "com.example.fleetech.fileprovider",
+//                        "com.nrv.fleetech.fileprovider",
 //                        it
 //                    )
 //                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -207,34 +193,34 @@ class ShareCodeFragment :  DialogFragment() {
                 }
             }
         }}
-        fun getImageUri(inContext: Context, inImage: Bitmap): Uri? {
-            val bytes = ByteArrayOutputStream()
+    fun getImageUri(inContext: Context, inImage: Bitmap): Uri? {
+        val bytes = ByteArrayOutputStream()
 //            inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-            val path =
-                MediaStore.Images.Media.insertImage(
-                    inContext.contentResolver,
-                    inImage,
-                    "Title",
-                    null
-                )
-            return Uri.parse(path)
-        }
+        val path =
+            MediaStore.Images.Media.insertImage(
+                inContext.contentResolver,
+                inImage,
+                "Title",
+                null
+            )
+        return Uri.parse(path)
+    }
 
-        fun getRealPathFromURI(uri: Uri?): String? {
-            var path = ""
-            if (Objects.requireNonNull(requireActivity()).contentResolver != null) {
-                val cursor = requireActivity().contentResolver.query(
-                    uri!!, null, null, null, null
-                )
-                if (cursor != null) {
-                    cursor.moveToFirst()
-                    val idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-                    path = cursor.getString(idx)
-                    cursor.close()
-                }
+    fun getRealPathFromURI(uri: Uri?): String? {
+        var path = ""
+        if (Objects.requireNonNull(requireActivity()).contentResolver != null) {
+            val cursor = requireActivity().contentResolver.query(
+                uri!!, null, null, null, null
+            )
+            if (cursor != null) {
+                cursor.moveToFirst()
+                val idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+                path = cursor.getString(idx)
+                cursor.close()
             }
-            return path
         }
+        return path
+    }
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        if (resultCode == Activity.RESULT_OK) {
 //

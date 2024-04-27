@@ -1,12 +1,10 @@
-package com.example.fleetech.activities.ui.home
+package com.nrv.fleetech.activities.ui.home
 
 import android.Manifest
 import android.app.Activity
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.database.Cursor
 import android.graphics.*
 import android.media.ExifInterface
 import android.net.Uri
@@ -14,7 +12,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +31,7 @@ import androidx.fragment.app.Fragment
 import com.example.fleetech.R
 import com.example.fleetech.util.Prefs
 import com.example.fleetech.util.Session
+
 import com.github.drjacky.imagepicker.ImagePicker
 import java.io.*
 import java.text.SimpleDateFormat
@@ -98,9 +96,7 @@ class JoinCircleDialog : DialogFragment() {
         val mEditText = view.findViewById(R.id.capture_icon) as ImageView
         val frontPodTx = view.findViewById(R.id.txt_front_pod) as TextView
         val txt_capture_frontpod = view.findViewById(R.id.txt_capture_frontpod) as TextView
-        Log.i("TAG","session_keyPodtype" + session.keyPodtype);
-        if (session.keyPodtype.equals("LRTYPE")) { // yogesh comment
-
+        if (session.keyPodtype.equals("LRTYPE")) {
             txt_capture_frontpod.setText("Capture LR Image")
             frontPodTx.setText("Take LR Image")
         }
@@ -237,7 +233,7 @@ class JoinCircleDialog : DialogFragment() {
                 photoFile?.also {
                     photoURI = FileProvider.getUriForFile(
                         requireContext(),
-                        "com.example.fleetech.fileprovider",
+                        "com.nrv.fleetech.fileprovider",
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -545,10 +541,9 @@ class JoinCircleDialog : DialogFragment() {
         cameraLauncher.launch(
             ImagePicker.with(requireActivity())
                 .crop()
-                .cameraOnly() // for gallery using .galleryOnly
+                .cameraOnly()
                 .maxResultSize(1080, 1920, true)
                 .createIntent()
-
         )
     }
 

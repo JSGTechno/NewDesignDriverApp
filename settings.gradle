@@ -23,4 +23,4 @@ dependencyResolutionManagement {
 //    }
 //}
 rootProject.name = "Fleetech"
-include ':app'
+include ':app',':googleDirectionLibrary'

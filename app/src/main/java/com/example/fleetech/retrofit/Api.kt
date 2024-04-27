@@ -139,7 +139,7 @@ interface Api {
 
     @Multipart
     @Headers("jHeaderKey:2822902663253743989656774574587600639682.450")
-    @POST("https://fleetech.in/NRVDriverAPI/api/jDriver/jFleetDispatchDocs")
+    @POST("https://Fleetech.in/FleetechDriverAPI/api/jDriver/jFleetDispatchDocs")
     fun updateProfilePhotoProcess(
         @Header("Authorization") token: String,
         @Query("OrderID") orderID: String?,
@@ -150,7 +150,7 @@ interface Api {
 
     @Multipart
     @Headers("jHeaderKey:2822902663253743989656774574587600639682.450")
-    @POST("https://fleetech.in/NRVDriverAPI/api/jDriver/jFleetDeliveryDocs")
+    @POST("https://Fleetech.in/FleetechDriverAPI/api/jDriver/jFleetDeliveryDocs")
     fun updatePODData(
         @Header("Authorization") token: String,
         @Query("OrderID") orderID: String?,

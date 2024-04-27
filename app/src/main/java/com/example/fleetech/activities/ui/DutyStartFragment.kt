@@ -3,6 +3,7 @@ package com.example.fleetech.activities.ui
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -22,12 +23,12 @@ import com.example.fleetech.R
 import com.example.fleetech.activities.ui.home.AssignOrderListFragment
 import com.example.fleetech.activities.ui.home.DispatchOrderListFragment
 import com.example.fleetech.activities.ui.home.HomeViewModel
-import com.example.fleetech.activities.ui.home.JoinCircleDialog
 import com.example.fleetech.databinding.FragmentDutyStartBinding
 import com.example.fleetech.databinding.FragmentMyTripBinding
 import com.example.fleetech.util.Session
 import com.example.fleetech.viewModel.DutyStartModel
 import com.google.android.material.snackbar.Snackbar
+import com.nrv.fleetech.activities.ui.home.JoinCircleDialog
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -57,6 +58,9 @@ class DutyStartFragment : Fragment() {
 
     val PERMISSIONS_MULTIPLE_REQUEST = 123
 
+    var currentTimeInMillis: Long = 0 // Current time in milliseconds
+    val interval: Long = 1000 // Interval for timer update (1 second)
+
    /* override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -76,7 +80,8 @@ class DutyStartFragment : Fragment() {
         sessionManager = Session(activity)
         val root: View = binding.root
         // Inflate the layout for this fragment
-        binding.walletTv.text = "₹ " + "200"
+        binding.walletTv.text = "₹ " + "" +
+                ""
         binding.ivBack.setOnClickListener{
          //   requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
                 // Handle back press event
@@ -154,7 +159,7 @@ class DutyStartFragment : Fragment() {
             }*/
         })
         viewModel.tripList.observe(viewLifecycleOwner, Observer {
-            Log.d("Json data Home", "" + it.jTripData)
+            Log.d("Json data Home", "check_data" + it.jTripData)
 
             if (it.success) {
                 TripStatus = it.jTripData.get(0).TripStatus
@@ -237,7 +242,7 @@ class DutyStartFragment : Fragment() {
                 Source_Lat = it.jTripData.get(0).PickupLat
                 Source_Long = it.jTripData.get(0).PickupLong
 
-                Log.i("TAG","data_check_trip" + Source_Lat + " : " + it.jTripData.get(0).PendingHoursFlag)
+           //     Log.i("TAG","data_check_trip" + Source_Lat + " : " + it.jTripData.get(0).PendingHoursFlag)
 
                 //binding.fleetStatus.text = it.jTripData.get(0).FleetStatus
                 sessionManager.keyWalletBalance = it.jWalletBalance
@@ -250,30 +255,79 @@ class DutyStartFragment : Fragment() {
                 if (it.jTripData.get(0).PendingHours != null) {
                 val totalHours = timeStringToMilliseconds(it.jTripData.get(0).PendingHours)
                     sessionManager.keyGalleryImage =  it.jTripData.get(0).GalleryImage
-                Log.i("TAG","timer" + " : " + totalHours + " : " + it.jTripData.get(0).GalleryImage);
+              //  Log.i("TAG","timer" + " : " + totalHours + " : " + it.jTripData.get(0).GalleryImage);
                     val totalTimeInMillis: Long = totalHours //it.jTripData.get(0).PendingTime.toLong()
+
                     // 1000 * 60 * 10 // 10 minutes
-
-                    countDownTimer = object : CountDownTimer(totalTimeInMillis, 1000) {
+                    var currentTimeInMillis: Long = totalTimeInMillis
+                    // call for increse
+                   /* countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
                         override fun onTick(millisUntilFinished: Long) {
-                            val hours = millisUntilFinished / 3600000
-                            val minutes = (millisUntilFinished % 3600000) / 60000
-                            val seconds = (millisUntilFinished % 60000) / 1000
-                           /* val minutes = millisUntilFinished / 1000 / 60
+                            currentTimeInMillis += interval*/
+                    if (it.jTripData.get(0).PendingHoursFlag.equals("D")) {
+                        countDownTimer = object : CountDownTimer(totalTimeInMillis, 1000) {
+                            override fun onTick(millisUntilFinished: Long) {
+                                val hours = millisUntilFinished / 3600000
+                                val minutes = (millisUntilFinished % 3600000) / 60000
+                                val seconds = (millisUntilFinished % 60000) / 1000
+                                /* val minutes = millisUntilFinished / 1000 / 60
                             val seconds = (millisUntilFinished / 1000) % 60*/
-                            binding.timerTextView.text =
-                                String.format("%02d",hours/*, minutes, seconds*/)
-                            binding.timerMinutes.text = String.format("%02d",minutes)
-                            binding.timerSec.text = String.format("%02d",seconds)
+
+
+                                //call for increase time
+                                /*  val hours = currentTimeInMillis / 3600000
+                            val minutes = (currentTimeInMillis % 3600000) / 60000
+                            val seconds = (currentTimeInMillis % 60000) / 1000*/
+
+                                binding.timerTextView.text =
+                                    String.format("%02d", hours/*, minutes, seconds*/)
+                                binding.timerMinutes.text = String.format("%02d", minutes)
+                                binding.timerSec.text = String.format("%02d", seconds)
+                            }
+
+                            override fun onFinish() {
+
+                                binding.timerTextView.text = "00"
+                                binding.timerMinutes.text = "00"
+                                binding.timerSec.text = "00"
+                                // Handle timer finish actions here
+                            }
+                        }
+                    }else{
+                        countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
+                            override fun onTick(millisUntilFinished: Long) {
+                                currentTimeInMillis += interval
+                              /*  val hours = millisUntilFinished / 3600000
+                                val minutes = (millisUntilFinished % 3600000) / 60000
+                                val seconds = (millisUntilFinished % 60000) / 1000*/
+                                /* val minutes = millisUntilFinished / 1000 / 60
+                            val seconds = (millisUntilFinished / 1000) % 60*/
+
+
+                                //call for increase time
+                                  val hours = currentTimeInMillis / 3600000
+                            val minutes = (currentTimeInMillis % 3600000) / 60000
+                            val seconds = (currentTimeInMillis % 60000) / 1000
+                                binding.timerTextView.setTextColor(Color.RED);
+                                binding.timerMinutes.setTextColor(Color.RED);
+                                binding.timerSec.setTextColor(Color.RED);
+
+                                binding.timerTextView.text =
+                                    String.format("%02d", hours/*, minutes, seconds*/)
+                                binding.timerMinutes.text = String.format("%02d", minutes)
+                                binding.timerSec.text = String.format("%02d", seconds)
+                            }
+
+                            override fun onFinish() {
+
+                                binding.timerTextView.text = "00"
+                                binding.timerMinutes.text = "00"
+                                binding.timerSec.text = "00"
+                                // Handle timer finish actions here
+                            }
                         }
 
-                        override fun onFinish() {
 
-                            binding.timerTextView.text = "00"
-                            binding.timerMinutes.text = "00"
-                            binding.timerSec.text = "00"
-                            // Handle timer finish actions here
-                        }
                     }
 
                     countDownTimer.start()
@@ -421,13 +475,13 @@ class DutyStartFragment : Fragment() {
             putDouble("Destionation_lat", Source_Lat) // Put parameters you want to pass
             putDouble("Destionation_long", Source_Long)
             putDouble("Source_lat", Destination_1)
-            putDouble("Source_long", Source_Long)
+            putDouble("Source_long", Destination_2)
         }
 
         val intent = Intent(activity, MapShowActivity::class.java)
         intent.putExtras(bundle);
         startActivity(intent)
-    /*    val fragmentB = MapFragment()
+      /*  val fragmentB = MapFragment()
         fragmentB.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.content_frame, fragmentB)

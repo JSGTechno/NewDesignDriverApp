@@ -172,6 +172,7 @@ class HomeViewModel : ViewModel() {
                 call: Call<TripDetailResponse>,
                 response: Response<TripDetailResponse>
             ) {
+
                 if (response.code() == 200) {
                     tripList.postValue(response.body())
                     loading.value = false
