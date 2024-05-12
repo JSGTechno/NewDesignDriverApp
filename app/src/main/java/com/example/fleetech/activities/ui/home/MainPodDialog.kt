@@ -133,9 +133,16 @@ class MainPodDialog : DialogFragment() {
                 call: Call<PODResponse>,
                 response: Response<PODResponse>) {
                 Log.i("TAG","check_data" + response.body())
+                Log.i("TAG","check_data" + "trueee")
+                if(response.body()!!.jDoc!=null /*&& response.body()!!.jDoc.getString("message")!=null*/){
+                    Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
+                    Log.i("TAG","check_data" + response.body()!!.jDoc)
+                    Log.i("TAG","check_data" + "False")
 
-                Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
-                println("Success111 ${response.body()!!.jDoc}")
+                }
+
+//                Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
+  //              println("Success111 ${response.body()!!.jDoc}")
 
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -186,7 +193,11 @@ class MainPodDialog : DialogFragment() {
                 response: Response<PODResponse>
             ) {
 
-                Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
+                if(response.body()!!.jDoc!=null /*&& response.body()!!.jDoc.getString("message")!=null*/){
+                    Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
+                }
+
+              //  Toast.makeText(requireActivity(), response.body()!!.jDoc , Toast.LENGTH_SHORT).show()
                 dismiss()
                 val intent = Intent(requireActivity(), MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK

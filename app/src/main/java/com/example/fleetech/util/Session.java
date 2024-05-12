@@ -177,6 +177,8 @@ public class Session {
     }
 
 
+
+
     public void setLattitude(String last_name) {
         pref.edit().putString(KEY_LATTITUDE, last_name).apply();
     }

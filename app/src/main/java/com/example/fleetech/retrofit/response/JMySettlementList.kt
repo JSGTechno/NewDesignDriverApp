@@ -8,4 +8,6 @@ data class JMySettlementList(
     val SettleURL: String,
     val Msg: String,
     val Result: Int,
+    val DocFlag:String,
+    val DocURL: String
 )

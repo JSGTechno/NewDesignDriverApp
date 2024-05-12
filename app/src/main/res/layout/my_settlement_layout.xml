@@ -130,6 +130,21 @@
         android:layout_weight="1"
         android:src="@drawable/icon_document"
         android:text=""
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        />
+
+    <ImageView
+        android:id="@+id/doc_url_iv"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:textColor="@color/blue_selector"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/icon_document"
+        android:visibility="invisible"
+        android:text=""
         android:layout_gravity="center"
         android:textSize="10sp"
         />

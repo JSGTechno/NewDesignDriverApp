@@ -55,6 +55,7 @@ class DutyStartFragment : Fragment() {
     var Destination_2 : Double = 0.0
     var Source_Lat : Double = 0.0
     var Source_Long : Double = 0.0
+    var apikey : String = "";
 
     val PERMISSIONS_MULTIPLE_REQUEST = 123
 
@@ -97,6 +98,8 @@ class DutyStartFragment : Fragment() {
             navigateToFragmentA()
         }
         binding.mapLocDelivery.setOnClickListener{
+
+
 
             navigateToFragmentB()
         }
@@ -214,6 +217,13 @@ class DutyStartFragment : Fragment() {
                 }
 
                 sessionManager.setKeyOrderId(it.jTripData.get(0).OrderID.toString())
+
+
+                 apikey = it.jTripData.get(0).APIKey
+
+
+
+                Log.i("TAG", "API_KEY" + it.jTripData.get(0).APIKey + " " + apikey)
 
 
                 binding.walletTv.text = "₹ " + it.jWalletBalance
@@ -451,7 +461,11 @@ class DutyStartFragment : Fragment() {
             putDouble("Destionation_long", Destination_2)
             putDouble("Source_lat", Source_Lat)
             putDouble("Source_long", Source_Long)
+            putString("api_key",apikey)
         }
+
+
+
 
         val intent = Intent(activity, MapShowActivity::class.java)
         intent.putExtras(bundle);
@@ -476,6 +490,7 @@ class DutyStartFragment : Fragment() {
             putDouble("Destionation_long", Source_Long)
             putDouble("Source_lat", Destination_1)
             putDouble("Source_long", Destination_2)
+            putString("api_key",apikey)
         }
 
         val intent = Intent(activity, MapShowActivity::class.java)

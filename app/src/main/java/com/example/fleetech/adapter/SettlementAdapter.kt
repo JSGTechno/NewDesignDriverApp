@@ -61,6 +61,17 @@ class SettlementAdapter(private val mList: List<JMySettlementList>, var pdfClick
                 pdfClick.pdfCLick(position,UpdateDataList.SettleURL)
             }
 
+            if (UpdateDataList.DocFlag.equals("Y")) {
+                holder.doc_url_iv.visibility = View.VISIBLE
+            }else{
+                holder.doc_url_iv.visibility = View.INVISIBLE
+            }
+
+            holder.doc_url_iv.setOnClickListener {
+
+                pdfClick.pdfCLick(position,UpdateDataList.DocURL)
+            }
+
 
 
 
@@ -82,6 +93,7 @@ class SettlementAdapter(private val mList: List<JMySettlementList>, var pdfClick
         val incentive_tv:TextView= itemView.findViewById(R.id.incentive_tv)
         val url_tv:ImageView= itemView.findViewById(R.id.url_tv)
         val sNoTv:TextView= itemView.findViewById(R.id.sNoTv)
+        val doc_url_iv:ImageView= itemView.findViewById(R.id.doc_url_iv)
 
 
     }

@@ -1523,7 +1523,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:text="settlement"
+                    android:text="Settlement"
                     android:layout_gravity="end|center"
                     android:background="@drawable/background_white1_cornor_round"
                     android:textColor="@color/black_transparent"

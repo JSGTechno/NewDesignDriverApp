@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.net.Uri;
@@ -54,6 +57,8 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
 
     private Double Dlat = 0.0 ,Dlong = 0.0 , Slat = 0.0 , Slong = 0.0;
     private boolean isZoomed = false;
+    private String apikey ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,11 +77,24 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
              Dlong = bundle.getDouble("Destionation_long");
              Slat = bundle.getDouble("Source_lat");
              Slong = bundle.getDouble("Source_long");
-            Log.i("TAG","check_lat_lng" + Dlat + " : " + Slong);
+            apikey = bundle.getString("api_key");
+            Log.i("TAG","check_lat_lng" + " : " + apikey + " : " +Dlat + " : " + Slong);
 
             // Display the data using a Toast
         //    Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
         }
+
+     //   String apiKey = preferences.getString("GOOGLE_MAPS_API_KEY", null);
+        if (apikey != null) {
+            Resources res = getResources();
+            String packageName = getPackageName();
+            int resId = res.getIdentifier("google_maps_api_key", apikey, packageName);
+            if (resId != 0) {
+                res.getString(resId);
+            }
+        }
+
+
     }
 
    /* @Override
@@ -259,7 +277,7 @@ public class MapShowActivity extends AppCompatActivity implements OnMapReadyCall
 
         //Execute Directions API request
         GeoApiContext context = new GeoApiContext.Builder()
-                .apiKey("AIzaSyD0lHd7Q5j0lhJSyum94EyWE62QsgZZ0vA")
+                .apiKey(apikey)
                 .build();
         DirectionsApiRequest req = DirectionsApi.getDirections(context, origin, desttination);
         try {
